@@ -25,3 +25,5 @@ data/raw/
 notebooks/.ipynb_checkpoints/
 
 *.pptx
+
+data/external/12.7.zip
