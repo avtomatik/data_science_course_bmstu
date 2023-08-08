@@ -33,10 +33,10 @@ def dice_factor(y_true, y_pred):
 
 # drive.mount("content/drive")
 
-DIR_1 = "/home/green-machine/data_science/bmstu/data/raw/drive-download-20220929T084853Z-001/images_prepped_train"
-DIR_2 = "/home/green-machine/data_science/bmstu/data/raw/drive-download-20220929T084853Z-001/images_prepped_test"
-DIR_3 = "/home/green-machine/data_science/bmstu/data/raw/drive-download-20220929T084853Z-001/annotations_prepped_train"
-DIR_4 = "/home/green-machine/data_science/bmstu/data/raw/drive-download-20220929T084853Z-001/annotations_prepped_test"
+DIR_1 = "..data/raw/drive-download-20220929T084853Z-001/images_prepped_train"
+DIR_2 = "..data/raw/drive-download-20220929T084853Z-001/images_prepped_test"
+DIR_3 = "..data/raw/drive-download-20220929T084853Z-001/annotations_prepped_train"
+DIR_4 = "..data/raw/drive-download-20220929T084853Z-001/annotations_prepped_test"
 
 train_im = []
 for filename in sorted(os.listdir(DIR_1)):
@@ -101,9 +101,7 @@ def color(dataset):
                 curr_str.append(index2color(curr_pr[j][i][0]))
             curr_matrix.append(curr_str)
         out.append(curr_matrix)
-    out = np.array(out)
-    out = out.astype("uint8")
-    return out
+    return np.array(out).astype("uint8")
 
 
 def one_hot12(dataset):
@@ -204,9 +202,7 @@ def color4(dataset):
                 curr_str.append(index2color(np.argmax(curr_pr[j][i][0])))
             curr_matrix.append(curr_str)
         out4.append(curr_matrix)
-    out4 = np.array(out4)
-    out4 = out4.astype("uint8")
-    return out4
+    return np.array(out4).astype("uint8")
 
 
 y_train_out = color(y_train)

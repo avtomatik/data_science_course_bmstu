@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            margin: auto;
+            width: 35%;
+        }
+
+        .result {
+            margin: auto;
+            width: 35%;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <title>Salary Prediction</title>
+</head>
+<body>
+    <form action="{{url_for('main')}}" method="POST">
+        <fieldset>
+            <legend>Insert Value</legend>
+            Enter Input Parameters
+            <input name="input_params" type="text" required>
+            <br>
+            <br>
+            <input type="submit">
+        </fieldset>
+    </form>
+    <div class="result" align="center">
+        {% if result %}
+            <br>
+            <p style="font-size: 50px;">
+            Expected Output Is
+            </p>
+            <p style="font-size: 50px;">
+                {{ result }}
+            </p>
+        {% endif %}
+    </div>
+</body>
+</html>
