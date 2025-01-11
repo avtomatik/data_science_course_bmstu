@@ -18,4 +18,4 @@ def trim_string(string: str, fill: str = ' ') -> str:
 
 def standardize_data(df: DataFrame) -> DataFrame:
     df.columns = map(lambda _: trim_string(_, fill='_'), df.columns)
-    return df.dropna(axis=0, how="all").dropna(axis=1, how="all")
+    return df.dropna(axis=0, how='all').dropna(axis=1, how='all')

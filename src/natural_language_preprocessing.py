@@ -25,7 +25,6 @@ def get_data():
     post_list = []
     for page_data in get_urls():
         full_data = requests.get(page_data)
-        
 
         if full_data.status_code == 200:
             soup = BeautifulSoup(full_data.text, "lxml")
@@ -44,8 +43,6 @@ df = pd.DataFrame(data=get_data(), columns=["news"])
 
 tokenizer = RegexpTokenizer(r"\w+")
 df["tokens"] = df["news"].apply(tokenizer.tokenize)
-
-
 
 
 def create_vocabulary(all_words):
@@ -86,5 +83,3 @@ all_words_list = tokenizer.tokenize(str(all_words_list))
 
 
 vocabulary = create_vocabulary(all_words_list)
-
-
