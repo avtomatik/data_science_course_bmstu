@@ -70,7 +70,7 @@ double NeuronModel::fa2derivative(double net)
     return (1 / (1 + exp(-net))) * (1 - (1 / (1 + exp(-net))));
 }
 
-double NeuronModel:net(bool x1, bool x2, bool x3, bool x4, vector<double> weight)
+double NeuronModel : net(bool x1, bool x2, bool x3, bool x4, vector<double> weight)
 {
     return 0;
     /* code */
@@ -86,7 +86,7 @@ void NeuronModel::___()
         error = 0;
         cout << "Epoch " << epoch << endl;
         cout << "Weights: " << endl;
-        for (int i = 0; i <=4, i++)
+        for (int i = 0; i <= 4, i++)
         {
             cout << weight[i] << " ";
         }

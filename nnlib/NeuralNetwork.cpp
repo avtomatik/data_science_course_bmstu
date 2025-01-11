@@ -68,19 +68,20 @@ void NeuralNetwork::train()
     int epoch = 1;
     while (error > 0.001)
     {
-        std::cout << std::endl << "Epoch # " << epoch << std::endl;
+        std::cout << std::endl
+                  << "Epoch # " << epoch << std::endl;
         std::cout << "Hidden Weights: " << std::endl;
         for (int i = 0; i < hiddenWeight.size(); i++)
         {
             std::cout << hiddenWeight[i] << " ";
         }
-        std::cout << std:endl;
+        std::cout << std : endl;
         std::cout << "Out Weights: " << std::endl;
         for (int i = 0; i < outWeight.size(); i++)
         {
             std::cout << outWeight[i] << " ";
         }
-        std::cout << std:endl;
+        std::cout << std : endl;
         // 1st Stage
         std::vector<double> tmpNet = net(hiddenX, hiddenWeight);
         for (int i = 0; i < hiddenOut.size(); i++)
