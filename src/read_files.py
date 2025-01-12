@@ -47,13 +47,6 @@ kwargs_collection = (
         'date_parser': parse_dates,
         'encoding': 'cp1251',
     },
-    {
-        'filepath_or_buffer': '../data/vote.txt',
-        'sep': '\t',
-        # 'names': ,
-        'index_col': 0,
-        'encoding': 'cp1251',
-    },
 )
 
 
