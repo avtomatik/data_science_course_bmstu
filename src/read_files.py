@@ -36,10 +36,6 @@ kwargs_collection = (
         'encoding': 'cp1251',
     },
     {
-        'filepath_or_buffer': '../data/ebw_data.csv',
-        # 'names': ,
-    },
-    {
         'filepath_or_buffer': '../data/praktika_regressiya_1_mnk.csv',
         # 'names': ,
     },
