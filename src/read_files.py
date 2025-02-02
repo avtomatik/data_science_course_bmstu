@@ -6,19 +6,13 @@ Created on Mon Nov  7 12:59:40 2022
 @author: green-machine
 """
 
-import datetime
-
 import pandas as pd
-
-
-def parse_dates(string: str) -> datetime.date:
-    date_int_triplet = list(map(int, string.split('-M'))) + [1]
-    return datetime.date(*date_int_triplet)
 
 
 def show_case(**kwargs):
     df = pd.read_csv(**kwargs)
-    print(df.info())
+    df.info()
+    print(df.describe())
 
 
 kwargs_collection = (
@@ -37,14 +31,6 @@ kwargs_collection = (
     {
         'filepath_or_buffer': '../data/praktika_regressiya_1_mnk.csv',
         # 'names': ,
-    },
-    {
-        'filepath_or_buffer': '../data/trade.txt',
-        'sep': '\t',
-        # 'names': ,
-        'index_col': 0,
-        'date_parser': parse_dates,
-        'encoding': 'cp1251',
     },
 )
 
