@@ -36,13 +36,22 @@ versicolor = iris.loc[iris.species == 'versicolor']
 plt.figure(figsize=(12, 8))
 with sns.axes_style('darkgrid'):
     ax = sns.kdeplot(
-        x=setosa.sepal_length, y=setosa.sepal_width, label='setosa', cmap='Blues'
+        x=setosa.sepal_length,
+        y=setosa.sepal_width,
+        label='setosa',
+        cmap='Blues'
     )
     ax = sns.kdeplot(
-        x=virginica.sepal_length, y=virginica.sepal_width, label='virginica', cmap='Greens'
+        x=virginica.sepal_length,
+        y=virginica.sepal_width,
+        label='virginica',
+        cmap='Greens'
     )
     ax = sns.kdeplot(
-        x=versicolor.sepal_length, y=versicolor.sepal_width, label='versicolor', cmap='Reds'
+        x=versicolor.sepal_length,
+        y=versicolor.sepal_width,
+        label='versicolor',
+        cmap='Reds'
     )
     ax.set_title('Fisher\'s Iris')
 

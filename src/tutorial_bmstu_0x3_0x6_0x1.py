@@ -28,7 +28,10 @@ def sinplot(flip: int = 1) -> None:
 # =============================================================================
 
 plt.figure(figsize=(15, 12))
-for _, style in enumerate(['darkgrid', 'whitegrid', 'dark', 'white', 'ticks'], start=1):
+for _, style in enumerate(
+    ['darkgrid', 'whitegrid', 'dark', 'white', 'ticks'],
+    start=1
+):
     sns.set(style=style)
     plt.subplot(3, 2, _)
     sinplot()

@@ -32,8 +32,17 @@ plt.plot(
 plt.axis([0, 2 * np.pi, -1, 1])
 plt.xticks(
     np.linspace(0, 2 * np.pi, 9),
-    ('0', r'$\frac{1}{4}\pi$', r'$\frac{1}{2}\pi$', r'$\frac{3}{4}\pi$', r'$\pi$',
-     r'$\frac{5}{4}\pi$', r'$\frac{3}{2}\pi$', r'$\frac{7}{4}\pi$', r'$2\pi$'),
+    (
+        '0',
+        r'$\frac{1}{4}\pi$',
+        r'$\frac{1}{2}\pi$',
+        r'$\frac{3}{4}\pi$',
+        r'$\pi$',
+        r'$\frac{5}{4}\pi$',
+        r'$\frac{3}{2}\pi$',
+        r'$\frac{7}{4}\pi$',
+        r'$2\pi$'
+    ),
     fontsize=20
 )
 plt.yticks(fontsize=12)

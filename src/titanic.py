@@ -15,11 +15,11 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
 with ZipFile('../data/external/titanic.zip').open('train.csv') as f:
     df = pd.read_csv(f)
 
-df = df[["Survived", "Sex", "Age", "SibSp", "Parch", "Fare"]]
+df = df[['Survived', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']]
 df.dropna(inplace=True)
 le = LabelEncoder()
-le.fit(df["Sex"])
-df["Sex"] = le.transform(df["Sex"])
+le.fit(df['Sex'])
+df['Sex'] = le.transform(df['Sex'])
 scaler = MinMaxScaler()
 scaler.fit(df)
 print(scaler.data_max_)

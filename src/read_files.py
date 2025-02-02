@@ -18,7 +18,6 @@ def parse_dates(string: str) -> datetime.date:
 
 def show_case(**kwargs):
     df = pd.read_csv(**kwargs)
-
     print(df.info())
 
 

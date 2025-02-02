@@ -21,7 +21,9 @@ class Perceptron:
         self.output_errors = None
 
         self.weights = np.random.normal(
-            .0, pow(self.input_count, -.5), (self.output_count, self.input_count)
+            .0,
+            pow(self.input_count, -.5),
+            (self.output_count, self.input_count)
         )
         self.output = None
         self.learning_rate = learning_rate
@@ -42,7 +44,6 @@ class Perceptron:
         inputs = np.array(inputs_list, ndmin=2).transpose()
         final_inputs = np.dot(self.weights, inputs)
         final_outputs = self.activation_function(final_inputs)
-
         return final_outputs
 
 
@@ -219,7 +220,9 @@ class Perceptron_V2:
         self.output_count = output_count
 
         self.weights = np.random.normal(
-            .0, pow(self.input_count, -.5), (self.output_count, self.input_count)
+            .0,
+            pow(self.input_count, -.5),
+            (self.output_count, self.input_count)
         )
         self.learning_rate = learning_rate
         self.activation_function = sp.special.expit
@@ -351,7 +354,14 @@ print(simple_perceptron.predict([1, 1]))
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 surf = ax.plot_surface(
-    X1, X2, Z, rstride=1, cstride=1, cmap=cm.RdBu, linewidth=0, antialiased=False
+    X1,
+    X2,
+    Z,
+    rstride=1,
+    cstride=1,
+    cmap=cm.RdBu,
+    linewidth=0,
+    antialiased=False
 )
 ax.zaxis.set_major_locator(LinearLocator(10))
 ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
