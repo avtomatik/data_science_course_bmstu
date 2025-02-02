@@ -167,13 +167,3 @@ sample.xlsx
 temp.py
 temp.xlsx
 temporary*
-
-data/raw/
-
-notebooks/.ipynb_checkpoints/
-
-*.pptx
-
-data/external/12.7.zip
-
-src/natural_language_processing_architectures.py

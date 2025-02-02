@@ -7,10 +7,7 @@ Created on Sat Sep 24 15:07:25 2022
 """
 
 import numpy as np
-import pandas as pd
-import plotly as py
 import plotly.graph_objs as go
-import seaborn as sns
 
 # =============================================================================
 # penguins = sns.load_dataset('penguins')

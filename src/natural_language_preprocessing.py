@@ -14,11 +14,11 @@ from nltk.tokenize import RegexpTokenizer
 
 
 def get_urls(
-    url: str = "https://www.kommersant.ru/doc",
+    url: str = 'https://www.kommersant.ru/doc',
     start: int = 4148690,
     stop: int = 4148790
 ) -> list[str]:
-    return ["/".join((url, str(_))) for _ in range(start, stop)]
+    return ['/'.join((url, str(_))) for _ in range(start, stop)]
 
 
 def get_data():
@@ -27,22 +27,22 @@ def get_data():
         full_data = requests.get(page_data)
 
         if full_data.status_code == 200:
-            soup = BeautifulSoup(full_data.text, "lxml")
+            soup = BeautifulSoup(full_data.text, 'lxml')
 
-            posts = soup.findAll('div', class_="article_text_wrapper")
+            posts = soup.findAll('div', class_='article_text_wrapper')
             for post in posts:
                 post_list.append(
-                    post.text.replace("!", " ").replace("?", " ").replace(
-                        "-", "").replace(".", "").replace("\n", "").replace(",", "").lower()
+                    post.text.replace('!', ' ').replace('?', ' ').replace(
+                        '-', '').replace('.', '').replace('\n', '').replace(',', '').lower()
                 )
     time.sleep(2.)
     return post_list
 
 
-df = pd.DataFrame(data=get_data(), columns=["news"])
+df = pd.DataFrame(data=get_data(), columns=['news'])
 
-tokenizer = RegexpTokenizer(r"\w+")
-df["tokens"] = df["news"].apply(tokenizer.tokenize)
+tokenizer = RegexpTokenizer(r'\w+')
+df['tokens'] = df['news'].apply(tokenizer.tokenize)
 
 
 def create_vocabulary(all_words):
@@ -68,9 +68,9 @@ def create_vocabulary(all_words):
 
         per = round(100 * index / word_keys_len)
         if (((per % 10) == 0) & (last_per != per)):
-            print(per, "% обратно", sep="")
+            print(per, '% обратно', sep='')
             last_per = per
-    print("Собран словарь частотности слов")
+    print('Собран словарь частотности слов')
 
     return words_indexes
 

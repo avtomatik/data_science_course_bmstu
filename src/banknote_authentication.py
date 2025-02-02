@@ -16,7 +16,7 @@ from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense
 
-url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/banknote_authentication.csv"
+url = 'https://raw.githubusercontent.com/jbrownlee/Datasets/master/banknote_authentication.csv'
 df = pd.read_csv(url, header=None)
 
 
@@ -26,15 +26,11 @@ print(df.info())
 print(df[0].value_counts())
 # X, y = df.iloc[:, :-1], df.iloc[:, -1]
 X, y = df.values[:, :-1], df.values[:, -1]
-X = X.astype("float32")
+X = X.astype('float32')
 y = LabelEncoder().fit_transform(y)
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=.25, shuffle=True)
-
-
-
-
 
 
 n_features = X.shape[1]
@@ -49,12 +45,12 @@ for train_ix, test_ix in kf.split(X, y):
     model = Sequential(
         [
             Dense(20, input_shape=(n_features,)),
-            Dense(10, activation="relu"),
-            Dense(1, activation="sigmoid"),
+            Dense(10, activation='relu'),
+            Dense(1, activation='sigmoid'),
         ]
     )
 
-    model.compile(optimizer="adam", loss="binary_crossentropy")
+    model.compile(optimizer='adam', loss='binary_crossentropy')
 
     history = model.fit(
         X_train,
@@ -70,17 +66,17 @@ for train_ix, test_ix in kf.split(X, y):
 
     score = accuracy_score(y_test, y_test.round())
 
-    print(f"Accuracy: {score}")
+    print(f'Accuracy: {score}')
 
-    plt.title("Learning")
-    plt.xlabel("Epochs")
-    plt.ylabel("Cross Entropy")
-    plt.plot(history.history["loss"], label="train")
-    plt.plot(history.history["val_loss"], label="val")
+    plt.title('Learning')
+    plt.xlabel('Epochs')
+    plt.ylabel('Cross Entropy')
+    plt.plot(history.history['loss'], label='train')
+    plt.plot(history.history['val_loss'], label='val')
     plt.grid()
     plt.legend()
     plt.show()
 
     scores.append(score)
 
-print(f"Average Accuracy for Cross Validation: {sum(scores) / len(scores)}")
+print(f'Average Accuracy for Cross Validation: {sum(scores) / len(scores)}')

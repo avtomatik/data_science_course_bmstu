@@ -12,8 +12,8 @@ import pandas as pd
 
 
 def parse_dates(string: str) -> datetime.date:
-    date_parsed = list(map(int, string.split('-M'))) + [1]
-    return datetime.date(*date_parsed)
+    date_int_triplet = list(map(int, string.split('-M'))) + [1]
+    return datetime.date(*date_int_triplet)
 
 
 def show_case(**kwargs):

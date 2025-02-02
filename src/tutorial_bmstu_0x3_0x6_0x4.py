@@ -6,14 +6,11 @@ Created on Sat Sep 24 13:54:37 2022
 @author: alexander
 """
 
-import matplotlib as mpl
 import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import scipy.stats as sps
 import seaborn as sns
 
 # =============================================================================
+# import scipy.stats as sps
 # penguins = sns.load_dataset('penguins')
 # sns.displot(x='flipper_length_mm', kde=True, data=penguins)
 # sns.displot(x='flipper_length_mm', kde=True, hue='species', data=penguins)
@@ -26,7 +23,7 @@ import seaborn as sns
 # x, y = sps.multivariate_normal(cov=[[2, 1], [1, 2]]).rvs(size=1000).transpose()
 # plt.figure(figsize=(12, 7))
 # plt.title(
-#     r"Ядерная оценка плотности $\mathcal{N}(\mathbf{0}, \mathbf{\Sigma})$")
+#     r'Ядерная оценка плотности $\mathcal{N}(\mathbf{0}, \mathbf{\Sigma})$')
 # sns.kdeplot(x=x, y=y, n_levels=15, shade=True, cmap='magma')
 # =============================================================================
 

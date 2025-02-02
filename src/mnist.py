@@ -28,11 +28,11 @@ model = Sequential(
         Conv2D(filters, kernel_size, input_shape=(28, 28, 1)),
         MaxPooling2D(pool_size),
         Flatten(),
-        Dense(10, activation="softmax"),
+        Dense(10, activation='softmax'),
     ]
 )
 
-model.compile("adam", loss="categorical_crossentropy", metrics="accuracy")
+model.compile('adam', loss='categorical_crossentropy', metrics='accuracy')
 
 model.fit(
     train_images,

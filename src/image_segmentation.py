@@ -11,14 +11,12 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 # from google.colab import drive
 from PIL import Image
 from tensorflow.keras import backend as K
 from tensorflow.keras import utils
 from tensorflow.keras.layers import (Activation, BatchNormalization, Conv2D,
-                                     Conv2DTranspose, Input, MaxPooling2D,
-                                     concatenate)
+                                     Conv2DTranspose, Input, MaxPooling2D)
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing import image
@@ -31,12 +29,12 @@ def dice_factor(y_true, y_pred):
     return (2 * K.sum(y_true * y_pred) + 1) / (K.sum(y_true) + K.sum(y_pred) + 1)
 
 
-# drive.mount("content/drive")
+# drive.mount('content/drive')
 
-DIR_1 = "..data/raw/drive-download-20220929T084853Z-001/images_prepped_train"
-DIR_2 = "..data/raw/drive-download-20220929T084853Z-001/images_prepped_test"
-DIR_3 = "..data/raw/drive-download-20220929T084853Z-001/annotations_prepped_train"
-DIR_4 = "..data/raw/drive-download-20220929T084853Z-001/annotations_prepped_test"
+DIR_1 = '..data/raw/drive-download-20220929T084853Z-001/images_prepped_train'
+DIR_2 = '..data/raw/drive-download-20220929T084853Z-001/images_prepped_test'
+DIR_3 = '..data/raw/drive-download-20220929T084853Z-001/annotations_prepped_train'
+DIR_4 = '..data/raw/drive-download-20220929T084853Z-001/annotations_prepped_test'
 
 train_im = []
 for filename in sorted(os.listdir(DIR_1)):
@@ -101,7 +99,7 @@ def color(dataset):
                 curr_str.append(index2color(curr_pr[j][i][0]))
             curr_matrix.append(curr_str)
         out.append(curr_matrix)
-    return np.array(out).astype("uint8")
+    return np.array(out).astype('uint8')
 
 
 def one_hot12(dataset):
@@ -202,7 +200,7 @@ def color4(dataset):
                 curr_str.append(index2color(np.argmax(curr_pr[j][i][0])))
             curr_matrix.append(curr_str)
         out4.append(curr_matrix)
-    return np.array(out4).astype("uint8")
+    return np.array(out4).astype('uint8')
 
 
 y_train_out = color(y_train)
@@ -210,11 +208,11 @@ y_test_out = color(y_test)
 
 
 n = 100
-plt.imshow(train_seg[n].convert("RGBA"))
+plt.imshow(train_seg[n].convert('RGBA'))
 plt.show()
 
 img = Image.fromarray(y_train_out[n])
-plt.imshow(img.convert("RGBA"))
+plt.imshow(img.convert('RGBA'))
 plt.show()
 
 
@@ -236,65 +234,65 @@ def unet(num_classes, input_shape):
     # =========================================================================
     # Block 1
     # =========================================================================
-    x = Conv2D(128, (3, 3), padding="same", name="block1_conv1")(img_input)
+    x = Conv2D(128, (3, 3), padding='same', name='block1_conv1')(img_input)
     x = BatchNormalization()(x)
-    x = Activation("relu")(x)
+    x = Activation('relu')(x)
 
-    x = Conv2D(128, (3, 3), padding="same", name="block1_conv2")(x)
+    x = Conv2D(128, (3, 3), padding='same', name='block1_conv2')(x)
     x = BatchNormalization()(x)
-    block1_out = Activation("relu")(x)
+    block1_out = Activation('relu')(x)
 
     x = MaxPooling2D()(block1_out)
 
     # =========================================================================
     # Block 2
     # =========================================================================
-    x = Conv2D(64, (3, 3), padding="same", name="block2_conv1")(x)
+    x = Conv2D(64, (3, 3), padding='same', name='block2_conv1')(x)
     x = BatchNormalization()(x)
-    x = Activation("relu")(x)
+    x = Activation('relu')(x)
 
-    x = Conv2D(64, (3, 3), padding="same", name="block2_conv2")(x)
+    x = Conv2D(64, (3, 3), padding='same', name='block2_conv2')(x)
     x = BatchNormalization()(x)
-    block2_out = Activation("relu")(x)
+    block2_out = Activation('relu')(x)
 
     x = MaxPooling2D()(block2_out)
 
     # =========================================================================
     # Up 1
     # =========================================================================
-    x = Conv2DTranspose(64, (2, 2), strides=(2, 2), padding="same")(x)
+    x = Conv2DTranspose(64, (2, 2), strides=(2, 2), padding='same')(x)
     x = BatchNormalization()(x)
-    x = Activation("relu")(x)
+    x = Activation('relu')(x)
 
-    x = Conv2D(64, (3, 3), padding="same")(x)
+    x = Conv2D(64, (3, 3), padding='same')(x)
     x = BatchNormalization()(x)
-    x = Activation("relu")(x)
+    x = Activation('relu')(x)
 
-    x = Conv2D(64, (3, 3), padding="same")(x)
+    x = Conv2D(64, (3, 3), padding='same')(x)
     x = BatchNormalization()(x)
-    x = Activation("relu")(x)
+    x = Activation('relu')(x)
 
     # =========================================================================
     # Up 2
     # =========================================================================
-    x = Conv2DTranspose(32, (2, 2), strides=(2, 2), padding="same")(x)
+    x = Conv2DTranspose(32, (2, 2), strides=(2, 2), padding='same')(x)
     x = BatchNormalization()(x)
-    x = Activation("relu")(x)
+    x = Activation('relu')(x)
 
-    x = Conv2D(128, (3, 3), padding="same")(x)
+    x = Conv2D(128, (3, 3), padding='same')(x)
     x = BatchNormalization()(x)
-    x = Activation("relu")(x)
+    x = Activation('relu')(x)
 
-    x = Conv2D(128, (3, 3), padding="same")(x)
+    x = Conv2D(128, (3, 3), padding='same')(x)
     x = BatchNormalization()(x)
-    x = Activation("relu")(x)
+    x = Activation('relu')(x)
 
-    x = Conv2D(num_classes, (3, 3), activation="softmax", padding="same")(x)
+    x = Conv2D(num_classes, (3, 3), activation='softmax', padding='same')(x)
 
     model = Model(img_input, x)
 
     model.compile(optimizer=Adam(lr=1e-03),
-                  loss="categorical_crossentropy", metrics=[dice_factor])
+                  loss='categorical_crossentropy', metrics=[dice_factor])
 
     model.summary()
 
@@ -308,11 +306,11 @@ hostory = model_s.fit(X_train, y_train4, epochs=30,
 f, axes = plt.subplots(10, 2, figsize=(15, 30))
 n = 33
 for i in range(10):
-    img = Image.fromarray(X_train[n + i].astype("uint8"))
-    axes[i, 0].imshow(img.convert("RGBA"))
+    img = Image.fromarray(X_train[n + i].astype('uint8'))
+    axes[i, 0].imshow(img.convert('RGBA'))
 
     img = Image.fromarray(y4_out[n + i])
-    axes[i, 0].imshow(img.convert("RGBA"))
+    axes[i, 0].imshow(img.convert('RGBA'))
 
 plt.show()
 

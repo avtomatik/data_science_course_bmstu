@@ -6,11 +6,8 @@ Created on Sat Sep 24 13:16:54 2022
 @author: alexander
 """
 
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-import scipy.stats as sps
 import seaborn as sns
 
 

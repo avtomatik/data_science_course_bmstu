@@ -8,10 +8,8 @@ Created on Mon Oct 10 22:05:19 2022
 
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.preprocessing import OneHotEncoder
 
 DIR = '../data/external'
 
@@ -27,7 +25,7 @@ DIR = '../data/external'
 # # one_hot_encoder.fit(np.array(df.variety.values).reshape(-1, 1))
 # # targets_trans = one_hot_encoder.transform(
 # #     np.array(df.variety.values).reshape(-1, 1))
-# # 
+# #
 # MAP = {title: _ for _, title in enumerate(df.variety.unique(), start=1)}
 # df['class'] = df.variety.map(MAP)
 # X = [df.iloc[_, :4].tolist() for _ in range(df.shape[0])]

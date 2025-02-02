@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy as sp
 from matplotlib.ticker import FormatStrFormatter, LinearLocator
-from mpl_toolkits.mplot3d import Axes3D
 from pylab import cm, colorbar, imshow, meshgrid, title
 
 
@@ -53,9 +52,9 @@ learning_rate = .1
 simple_perceptron = Perceptron(input_count, output_count, learning_rate)
 print(simple_perceptron.weights)
 
-weights = {"positive": [], "negative": []}
-outputs = {"positive": [], "negative": []}
-output_errors = {"positive": [], "negative": [], "mean": []}
+weights = {'positive': [], 'negative': []}
+outputs = {'positive': [], 'negative': []}
+output_errors = {'positive': [], 'negative': [], 'mean': []}
 
 X_train = [[1],
            [-1]]
@@ -65,56 +64,56 @@ y_train = [[1],
 for epoch in range(10_000):
     simple_perceptron.train(X_train[0], y_train[0])
 
-    weights["positive"].append(simple_perceptron.weights.copy())
-    weights["positive"].append(simple_perceptron.final_outputs.copy())
+    weights['positive'].append(simple_perceptron.weights.copy())
+    weights['positive'].append(simple_perceptron.final_outputs.copy())
     error_1 = simple_perceptron.output_errors.copy()
-    output_errors["positive"].append(error_1)
+    output_errors['positive'].append(error_1)
 
     simple_perceptron.train(X_train[1], y_train[1])
-    weights["negative"].append(simple_perceptron.weights.copy())
-    outputs["negative"].append(simple_perceptron.final_outputs.copy())
+    weights['negative'].append(simple_perceptron.weights.copy())
+    outputs['negative'].append(simple_perceptron.final_outputs.copy())
     error_2 = simple_perceptron.output_errors.copy()
-    output_errors["negative"].append(error_2)
+    output_errors['negative'].append(error_2)
 
-    output_errors["mean"].append(np.mean([error_1, error_2]))
+    output_errors['mean'].append(np.mean([error_1, error_2]))
 
 
-epoch_weights = np.array(weights["negative"])
-final_outputs = np.array(outputs["negative"])
-epoch_errors = np.array(output_errors["mean"])
+epoch_weights = np.array(weights['negative'])
+final_outputs = np.array(outputs['negative'])
+epoch_errors = np.array(output_errors['mean'])
 
 epoch_weights = epoch_weights.reshape(epoch_weights.shape[0])
 final_outputs = final_outputs.reshape(final_outputs.shape[0])
 epoch_errors = epoch_errors.reshape(epoch_errors.shape[0])
 
-plt.plot(epoch_weights, label="Вес в конце эпохи")
-plt.ylabel("Эпоха")
+plt.plot(epoch_weights, label='Вес в конце эпохи')
+plt.ylabel('Эпоха')
 plt.legend()
 plt.grid()
 plt.show()
 
-final_errors = np.array(output_errors["negative"])
+final_errors = np.array(output_errors['negative'])
 final_errors = final_errors.reshape(final_errors.shape[0])
 
-plt.plot(final_errors, label="Ошибка прогноза в конце эпохи")
-plt.plot(final_outputs, label="Финальный выход эпохи")
-plt.ylabel("Эпоха")
+plt.plot(final_errors, label='Ошибка прогноза в конце эпохи')
+plt.plot(final_outputs, label='Финальный выход эпохи')
+plt.ylabel('Эпоха')
 plt.legend()
 plt.grid()
 plt.show()
 
-plt.plot(epoch_errors, label="Средняя ошибка прогноза на эпохе")
-plt.plot(final_outputs, label="Финальный выход эпохи")
-plt.ylabel("Эпоха")
+plt.plot(epoch_errors, label='Средняя ошибка прогноза на эпохе')
+plt.plot(final_outputs, label='Финальный выход эпохи')
+plt.ylabel('Эпоха')
 plt.legend()
 plt.grid()
 plt.show()
 
-start_errors = np.array(output_errors["positive"])
+start_errors = np.array(output_errors['positive'])
 start_errors = start_errors.reshape(start_errors.shape[0])
 
-plt.plot(start_errors, label="Ошибка прогноза после первого примера")
-plt.ylabel("Эпоха")
+plt.plot(start_errors, label='Ошибка прогноза после первого примера')
+plt.ylabel('Эпоха')
 plt.legend()
 plt.grid()
 plt.show()
@@ -126,13 +125,13 @@ print(simple_perceptron.predict([-100.]))
 outputs = [simple_perceptron.predict([_])[0] for _ in np.arange(-5., 5., .1)]
 
 plt.plot(np.arange(-5., 5., .1), outputs)
-plt.xlabel("Число")
-plt.ylabel("Выход НС")
+plt.xlabel('Число')
+plt.ylabel('Выход НС')
 plt.grid()
 plt.show()
 
 # =============================================================================
-# Задача логического "ИЛИ"
+# Задача логического 'ИЛИ'
 # =============================================================================
 input_count = 2
 output_count = 1
@@ -175,8 +174,8 @@ outputs = [simple_perceptron.predict([_])[0] for _ in np.arange(-5., 5., .1)]
 
 plt.plot(np.arange(-5., 5., .1), outputs)
 plt.scatter(0, simple_perceptron.predict([0]))
-plt.xlabel("Число")
-plt.ylabel("Выход НС")
+plt.xlabel('Число')
+plt.ylabel('Выход НС')
 plt.grid()
 plt.show()
 
@@ -188,8 +187,8 @@ for _ in np.arange(-5., 5., .1):
 
 plt.plot(np.arange(-5., 5., .1), outputs)
 plt.scatter(0, simple_perceptron.predict([0]))
-plt.xlabel("Число")
-plt.ylabel("Выход НС")
+plt.xlabel('Число')
+plt.ylabel('Выход НС')
 plt.grid()
 plt.show()
 
@@ -208,8 +207,8 @@ outputs = [
     simple_perceptron.predict([_, 1])[0] for _ in np.arange(-5., 5., .1)
 ]
 plt.plot(np.arange(-5., 5., .1), outputs)
-plt.xlabel("Число")
-plt.ylabel("Выход НС")
+plt.xlabel('Число')
+plt.ylabel('Выход НС')
 plt.grid()
 plt.show()
 
@@ -259,13 +258,13 @@ outputs = [
     simple_perceptron.predict([_])[0] for _ in np.arange(-5., 5., .1)
 ]
 plt.plot(np.arange(-5., 5., .1), outputs)
-plt.xlabel("Число")
-plt.ylabel("Выход НС")
+plt.xlabel('Число')
+plt.ylabel('Выход НС')
 plt.grid()
 plt.show()
 
 # =============================================================================
-# Задача логического "И"
+# Задача логического 'И'
 # =============================================================================
 
 input_nodes = 2
@@ -298,7 +297,7 @@ plt.scatter(-1, 1)
 plt.scatter(1, -1)
 plt.scatter(1, 1)
 
-title("")
+title('')
 plt.ylim(-2, 2)
 
 print(simple_perceptron.predict([-1, -1]))
@@ -340,7 +339,7 @@ plt.scatter(1, -1)
 plt.scatter(1, 1)
 
 colorbar(im)
-title("")
+title('')
 plt.ylim(-2, 2)
 
 print(simple_perceptron.predict([-1, -1]))
@@ -350,19 +349,19 @@ print(simple_perceptron.predict([1, 1]))
 
 
 fig = plt.figure()
-ax = fig.gca(projection="3d")
+ax = fig.gca(projection='3d')
 surf = ax.plot_surface(
     X1, X2, Z, rstride=1, cstride=1, cmap=cm.RdBu, linewidth=0, antialiased=False
 )
 ax.zaxis.set_major_locator(LinearLocator(10))
-ax.zaxis.set_major_formatter(FormatStrFormatter("%.02f"))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
 ax.view_init(10)
 fig.colorbar(surf, shrink=.5, aspect=5)
 
 plt.show()
 
 # =============================================================================
-# Задача логического "Исключающего ИЛИ"
+# Задача логического 'Исключающего ИЛИ'
 # =============================================================================
 
 input_nodes = 2
@@ -400,7 +399,7 @@ for _ in range(10):
     plt.scatter(1, 1)
 
     colorbar(im)
-    title("")
+    title('')
     plt.ylim(-2, 2)
     plt.show()
 
@@ -507,7 +506,7 @@ plt.scatter(1, -1)
 plt.scatter(1, 1)
 
 colorbar(im)
-title("")
+title('')
 plt.ylim(-2, 2)
 plt.show()
 

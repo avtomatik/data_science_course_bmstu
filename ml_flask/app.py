@@ -5,8 +5,8 @@ from flask import render_template
 
 app = flask.Flask(__name__, template_folder='templates')
 
-@app.route('/', methods=['POST', 'GET'])
 
+@app.route('/', methods=['POST', 'GET'])
 @app.route('/index', methods=['POST', 'GET'])
 def main():
     if request.method == 'GET':

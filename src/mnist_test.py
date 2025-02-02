@@ -8,7 +8,7 @@ Created on Tue Nov  1 18:31:37 2022
 
 import numpy as np
 from tensorflow.keras.datasets.mnist import load_data
-from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
+from tensorflow.keras.layers import Dense, Flatten
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.utils import to_categorical
 
@@ -21,13 +21,13 @@ test_images = np.expand_dims(test_images, axis=3)
 
 model = Sequential([
     Flatten(input_shape=(28, 28, 1)),
-    Dense(128, activation="relu"),
-    Dense(128, activation="relu"),
+    Dense(128, activation='relu'),
+    Dense(128, activation='relu'),
     Flatten(),
-    Dense(10, activation="softmax"),
+    Dense(10, activation='softmax'),
 ])
 
-model.compile("adam", loss="categorical_crossentropy", metrics="accuracy")
+model.compile('adam', loss='categorical_crossentropy', metrics='accuracy')
 
 model.fit(
     train_images,
