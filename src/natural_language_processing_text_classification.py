@@ -22,7 +22,10 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
 
-archive_path = '../data/external/12.7.zip'
+from config import DATA_DIR
+
+archive_name = '12.7.zip'
+archive_path = DATA_DIR.joinpath('external').joinpath(archive_name)
 path_positive = '12.7/positive.csv'
 path_negative = '12.7/negative.csv'
 

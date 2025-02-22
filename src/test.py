@@ -5,8 +5,11 @@ import pandas as pd
 from sklearn.cluster import DBSCAN, AgglomerativeClustering
 from sklearn.preprocessing import LabelEncoder
 
+from config import DATA_DIR
+
+archive_name = '08_patents.zip'
 kwargs = {
-    'filepath_or_buffer': '../data/external/08_patents.zip',
+    'filepath_or_buffer': DATA_DIR.joinpath('external').joinpath(archive_name),
     'index_col': 0,
     'parse_dates': [0]
 }

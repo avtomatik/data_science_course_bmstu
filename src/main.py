@@ -35,7 +35,9 @@ DIR = '../data/external'
 # print(neigh.predict([[5, 5, 2, 1]]))
 # print(neigh.predict_proba([[8, 4, 5, 3]]))
 
-
+# =============================================================================
+# https://www.kaggle.com/datasets/aayushkandpal/credit-card-details-australian-bank
+# =============================================================================
 df = pd.read_csv(
     Path(DIR).joinpath('creditaustralia.csv'),
     # header=None,
