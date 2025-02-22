@@ -8,6 +8,8 @@ Created on Mon Nov  7 12:59:40 2022
 
 import pandas as pd
 
+from config import DATA_DIR
+
 
 def show_case(**kwargs):
     df = pd.read_csv(**kwargs)
@@ -17,20 +19,17 @@ def show_case(**kwargs):
 
 kwargs_collection = (
     {
-        'filepath_or_buffer': '../data/airline_passengers.csv',
-        # 'names': ,
+        'filepath_or_buffer': DATA_DIR.joinpath('airline_passengers.csv'),
         'index_col': 0,
         'parse_dates': [0],
     },
     {
-        'filepath_or_buffer': '../data/credit.txt',
+        'filepath_or_buffer': DATA_DIR.joinpath('credit.txt'),
         'sep': '\t',
-        # 'names': ,
         'encoding': 'cp1251',
     },
     {
-        'filepath_or_buffer': '../data/praktika_regressiya_1_mnk.csv',
-        # 'names': ,
+        'filepath_or_buffer': DATA_DIR.joinpath('praktika_regressiya_1_mnk.csv'),
     },
 )
 
