@@ -101,7 +101,7 @@ X_train_seq = get_sequences(tokenizer, X_train)
 X_test_seq = get_sequences(tokenizer, X_test)
 
 # =============================================================================
-# ?
+# Logging
 # =============================================================================
 logging.basicConfig(format='%(asctime)s: %(levelname)s', level=logging.INFO)
 

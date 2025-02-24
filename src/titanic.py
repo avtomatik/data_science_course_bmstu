@@ -15,10 +15,11 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
 from config import DATA_DIR
 
 archive_name = 'titanic.zip'
+
 with ZipFile(
     DATA_DIR.joinpath('external').joinpath(archive_name)
 ).open('train.csv') as f:
-    df = pd.read_csv(f)
+    df = pd.read_csv(f, index_col=0)
 
 df = df[['Survived', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']]
 df.dropna(inplace=True)
