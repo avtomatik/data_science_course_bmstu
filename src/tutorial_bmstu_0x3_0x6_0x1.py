@@ -19,14 +19,19 @@ def sinplot(flip: int = 1) -> None:
 
 
 # =============================================================================
-# plt.figure(figsize=(15, 9))
-# for _, context in enumerate(['notebook', 'paper', 'talk', 'poster'], start=1):
-#     sns.set(context=context)
-#     plt.subplot(2, 2, _)
-#     sinplot()
-#     plt.title(context)
+# Plot
 # =============================================================================
+plt.figure(figsize=(15, 9))
+for _, context in enumerate(['notebook', 'paper', 'talk', 'poster'], start=1):
+    sns.set(context=context)
+    plt.subplot(2, 2, _)
+    sinplot()
+    plt.title(context)
 
+
+# =============================================================================
+# Plot
+# =============================================================================
 plt.figure(figsize=(15, 12))
 for _, style in enumerate(
     ['darkgrid', 'whitegrid', 'dark', 'white', 'ticks'],
@@ -39,11 +44,16 @@ for _, style in enumerate(
 
 
 # =============================================================================
-# with sns.plotting_context('notebook'), sns.axes_style('ticks'):
-#     sinplot()
-#     sns.despine()
+# Plot
 # =============================================================================
+with sns.plotting_context('notebook'), sns.axes_style('ticks'):
+    sinplot()
+    sns.despine()
 
+
+# =============================================================================
+# Plot
+# =============================================================================
 count = 100
 colors = sns.color_palette('rainbow', count)
 layers = np.linspace(1, 2, count)

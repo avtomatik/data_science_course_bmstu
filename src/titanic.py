@@ -14,6 +14,9 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
 
 from config import DATA_DIR
 
+# =============================================================================
+# https://www.kaggle.com/competitions/titanic/data
+# =============================================================================
 archive_name = 'titanic.zip'
 
 with ZipFile(
@@ -24,9 +27,9 @@ with ZipFile(
 df = df[['Survived', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']]
 df.dropna(inplace=True)
 
-le = LabelEncoder()
-le.fit(df['Sex'])
-df['Sex'] = le.transform(df['Sex'])
+label_encoder = LabelEncoder()
+label_encoder.fit(df['Sex'])
+df['Sex'] = label_encoder.transform(df['Sex'])
 
 scaler = MinMaxScaler()
 scaler.fit(df)

@@ -62,100 +62,110 @@ plt.show()
 # =============================================================================
 
 # =============================================================================
-# x = np.linspace(-1, 1, 50)
-# y = x
-# z = np.outer(x, y)
-#
-# plt.figure(figsize=(5, 5))
-# plt.contour(x, y, z)
-# plt.show()
+# Plot
 # =============================================================================
+x = np.linspace(-1, 1, 50)
+y = x
+z = np.outer(x, y)
 
-
-# =============================================================================
-# x = np.linspace(-1, 1, 50)
-# y = x
-# z = np.outer(x, y)
-#
-# plt.figure(figsize=(5, 5))
-# curves = plt.contour(x, y, z, np.linspace(-1, 1, 11))
-# plt.clabel(curves)
-# plt.title(r'$z=xy$', fontsize=10)
-# plt.show()
-# =============================================================================
+plt.figure(figsize=(5, 5))
+plt.contour(x, y, z)
+plt.show()
 
 
 # =============================================================================
-# x = np.linspace(-1, 1, 50)
-# y = x
-# z = np.outer(x, y)
-#
-# plt.figure(figsize=(5, 5))
-# plt.contourf(x, y, z, np.linspace(-1, 1, 11))
-# plt.colorbar()
-# plt.show()
+# Plot
 # =============================================================================
+x = np.linspace(-1, 1, 50)
+y = x
+z = np.outer(x, y)
 
-
-# =============================================================================
-# t = np.linspace(0, 4 * np.pi, 100)
-# x = np.cos(t)
-# y = np.sin(t)
-# z = t / (4 * np.pi)
-#
-# fig = plt.figure()
-# ax = Axes3D(fig, auto_add_to_figure=False)
-# fig.add_axes(ax)
-# ax.plot(x, y, z)
-# =============================================================================
+plt.figure(figsize=(5, 5))
+curves = plt.contour(x, y, z, np.linspace(-1, 1, 11))
+plt.clabel(curves)
+plt.title(r'$z=xy$', fontsize=10)
+plt.show()
 
 
 # =============================================================================
-# t = np.linspace(0, 4 * np.pi, 100)
-# x = np.cos(t)
-# y = np.sin(t)
-# z = t / (4 * np.pi)
-#
-# fig = plt.figure()
-# ax = Axes3D(fig, auto_add_to_figure=False)
-# ax.elev, ax.azim = 45, 30
-# fig.add_axes(ax)
-# ax.plot(x, y, z)
+# Plot
 # =============================================================================
+x = np.linspace(-1, 1, 50)
+y = x
+z = np.outer(x, y)
 
-
-# =============================================================================
-# X = 10
-# N = 50
-# u = np.linspace(-X, X, N)
-# x, y = np.meshgrid(u, u)
-# r = np.sqrt(x ** 2 + y ** 2)
-# z = np.sin(r) / r
-#
-# fig = plt.figure()
-# ax = Axes3D(fig, auto_add_to_figure=False)
-# ax.plot_surface(x, y, z, rstride=10, cstride=10)
-# fig.add_axes(ax)
-# plt.show()
-# =============================================================================
+plt.figure(figsize=(5, 5))
+plt.contourf(x, y, z, np.linspace(-1, 1, 11))
+plt.colorbar()
+plt.show()
 
 
 # =============================================================================
-# X = 10
-# N = 50
-# u = np.linspace(-X, X, N)
-# x, y = np.meshgrid(u, u)
-# r = np.sqrt(x ** 2 + y ** 2)
-# z = np.sin(r) / r
-#
-# fig = plt.figure()
-# ax = Axes3D(fig, auto_add_to_figure=False)
-# ax.plot_surface(x, y, z, rstride=1, cstride=1, cmap='gnuplot')
-# fig.add_axes(ax)
-# plt.show()
+# Spiral
 # =============================================================================
+t = np.linspace(0, 4 * np.pi, 100)
+x = np.cos(t)
+y = np.sin(t)
+z = t / (4 * np.pi)
+
+fig = plt.figure()
+ax = Axes3D(fig, auto_add_to_figure=False)
+fig.add_axes(ax)
+ax.plot(x, y, z)
 
 
+# =============================================================================
+# Spiral
+# =============================================================================
+t = np.linspace(0, 4 * np.pi, 100)
+x = np.cos(t)
+y = np.sin(t)
+z = t / (4 * np.pi)
+
+fig = plt.figure()
+ax = Axes3D(fig, auto_add_to_figure=False)
+ax.elev, ax.azim = 45, 30
+fig.add_axes(ax)
+ax.plot(x, y, z)
+
+
+# =============================================================================
+# Plot
+# =============================================================================
+X = 10
+N = 50
+u = np.linspace(-X, X, N)
+x, y = np.meshgrid(u, u)
+r = np.sqrt(x ** 2 + y ** 2)
+z = np.sin(r) / r
+
+fig = plt.figure()
+ax = Axes3D(fig, auto_add_to_figure=False)
+ax.plot_surface(x, y, z, rstride=10, cstride=10)
+fig.add_axes(ax)
+plt.show()
+
+
+# =============================================================================
+# Plot
+# =============================================================================
+X = 10
+N = 50
+u = np.linspace(-X, X, N)
+x, y = np.meshgrid(u, u)
+r = np.sqrt(x ** 2 + y ** 2)
+z = np.sin(r) / r
+
+fig = plt.figure()
+ax = Axes3D(fig, auto_add_to_figure=False)
+ax.plot_surface(x, y, z, rstride=1, cstride=1, cmap='gnuplot')
+fig.add_axes(ax)
+plt.show()
+
+
+# =============================================================================
+# Plot
+# =============================================================================
 t = np.linspace(0, 2 * np.pi, 100)
 theta, phi = np.meshgrid(t, t)
 r = .2

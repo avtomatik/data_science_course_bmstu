@@ -20,9 +20,9 @@ url = 'https://raw.githubusercontent.com/jbrownlee/Datasets/master/banknote_auth
 df = pd.read_csv(url, header=None)
 
 
+df.info()
 print(df.describe())
 print(df.corr())
-print(df.info())
 print(df[0].value_counts())
 # X, y = df.iloc[:, :-1], df.iloc[:, -1]
 X, y = df.values[:, :-1], df.values[:, -1]

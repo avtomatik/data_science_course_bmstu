@@ -15,9 +15,9 @@ kwargs = {
 }
 df = pd.read_csv(**kwargs)
 X = df.copy()
-le = LabelEncoder()
-le.fit(X.iloc[:, 1])
-X['category'] = le.transform(X.iloc[:, 1])
+label_encoder = LabelEncoder()
+label_encoder.fit(X.iloc[:, 1])
+X['category'] = label_encoder.transform(X.iloc[:, 1])
 
 print(X.info())
 clustering = AgglomerativeClustering().fit(
