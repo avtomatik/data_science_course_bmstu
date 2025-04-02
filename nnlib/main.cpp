@@ -1,5 +1,5 @@
 #include "neuron_model.cpp"
-using namespase std;
+using namespace std;
 
 int main(int argc; const char *argv[])
 {
