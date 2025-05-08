@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sat Feb 22 23:44:48 2025
+Created on Wed May  7 20:06:28 2025
 
-@author: green-machine
+@author: alexandermikhailov
 """
 
 from pathlib import Path
