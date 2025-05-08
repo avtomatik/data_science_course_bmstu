@@ -7,7 +7,6 @@ Created on Mon Nov  7 12:59:40 2022
 """
 
 import pandas as pd
-
 from config import DATA_DIR
 
 

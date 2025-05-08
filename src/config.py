@@ -8,6 +8,8 @@ Created on Sat Feb 22 23:44:48 2025
 
 from pathlib import Path
 
-DATA_DIR = Path(__file__).resolve().parent.parent.joinpath('data')
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-MODELS_DIR = Path(__file__).resolve().parent.parent.joinpath('models')
+DATA_DIR = BASE_DIR.joinpath('data')
+
+MODELS_DIR = BASE_DIR.joinpath('models')

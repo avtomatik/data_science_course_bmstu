@@ -10,9 +10,8 @@ Created on Thu Oct 20 15:58:35 2022
 from zipfile import ZipFile
 
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
-
 from config import DATA_DIR
+from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
 
 # =============================================================================
 # https://www.kaggle.com/competitions/titanic/data

@@ -13,6 +13,7 @@ from zipfile import ZipFile
 
 import numpy as np
 import pandas as pd
+from config import DATA_DIR
 from gensim.models import Word2Vec
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.layers import (Activation, Conv1D, Dense, Dropout,
@@ -21,8 +22,6 @@ from tensorflow.keras.layers import (Activation, Conv1D, Dense, Dropout,
 from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
-
-from config import DATA_DIR
 
 archive_name = '12.7.zip'
 archive_path = DATA_DIR.joinpath('external').joinpath(archive_name)

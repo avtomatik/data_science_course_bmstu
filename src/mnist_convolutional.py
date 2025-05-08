@@ -8,13 +8,12 @@ Created on Tue Nov  1 18:31:37 2022
 """
 
 import numpy as np
+from config import MODELS_DIR
 from tensorflow.keras.datasets.mnist import load_data
 from tensorflow.keras.layers import (Conv2D, Dense, Dropout, Flatten,
                                      MaxPooling2D)
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.utils import to_categorical
-
-from config import MODELS_DIR
 
 (train_images, train_labels), (test_images, test_labels) = load_data()
 
