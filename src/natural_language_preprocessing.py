@@ -6,6 +6,7 @@ This is a temporary script file.
 """
 
 import time
+from http import HTTPStatus
 
 import pandas as pd
 import requests
@@ -26,7 +27,7 @@ def get_data():
     for page_data in get_urls():
         full_data = requests.get(page_data)
 
-        if full_data.status_code == 200:
+        if full_data.status_code == HTTPStatus.OK:
             soup = BeautifulSoup(full_data.text, 'lxml')
 
             posts = soup.findAll('div', class_='article_text_wrapper')
